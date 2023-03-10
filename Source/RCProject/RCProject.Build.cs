@@ -12,7 +12,7 @@ public class RCProject : ModuleRules
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 
-		PublicIncludePaths.AddRange(new string[] { "RCProject/Public/Player" });
+		PublicIncludePaths.AddRange(new string[] { "RCProject/Public/Player", "RCProject/Public/Weapon", "RCProject/Public/UI" });
 
 		// Uncomment if you are using Slate UI
 		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
