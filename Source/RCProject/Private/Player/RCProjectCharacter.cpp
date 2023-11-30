@@ -5,7 +5,6 @@
 #include "Camera/CameraComponent.h"
 #include "Components/InputComponent.h"
 #include "GameFramework/SpringArmComponent.h"
-#include "Weapon/RCProjectWeaponComponent.h"
 
 // Sets default values
 ARCProjectCharacter::ARCProjectCharacter()
@@ -16,22 +15,17 @@ ARCProjectCharacter::ARCProjectCharacter()
 	SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>("SpringArmComponent");
 	SpringArmComponent->SetupAttachment(GetRootComponent());
 	SpringArmComponent->bUsePawnControlRotation = true;
-	SpringArmComponent->SocketOffset = FVector(0.0f, 100.0f, 80.0f);
 
 	CameraComponent = CreateDefaultSubobject<UCameraComponent>("CameraComponent");
 	CameraComponent->SetupAttachment(SpringArmComponent);
 
-	WeaponComponent = CreateAbstractDefaultSubobject<URCProjectWeaponComponent>("WeaponComponent");
-	
-	
 }
 
 // Called when the game starts or when spawned
 void ARCProjectCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-
-
+	
 }
 
 // Called every frame
@@ -46,14 +40,10 @@ void ARCProjectCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInput
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
-	check(PlayerInputComponent);
-	check(WeaponComponent);
-
 	PlayerInputComponent->BindAxis("MoveForward", this, &ARCProjectCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ARCProjectCharacter::MoveRight);
 	PlayerInputComponent->BindAxis("LookUp", this, &ARCProjectCharacter::LookUp);
 	PlayerInputComponent->BindAxis("TurnAround", this, &ARCProjectCharacter::TurnAround);
-	PlayerInputComponent->BindAction("Fire", IE_Pressed, WeaponComponent, &URCProjectWeaponComponent::Fire);
 }
 
 void ARCProjectCharacter::MoveForward(float Amount)

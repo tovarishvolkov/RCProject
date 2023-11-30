@@ -8,8 +8,6 @@
 
 class UCameraComponent;
 class USpringArmComponent;
-class URCProjectWeaponComponent;
-
 
 UCLASS()
 class RCPROJECT_API ARCProjectCharacter : public ACharacter
@@ -27,12 +25,6 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
 		UCameraComponent* CameraComponent;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Components")
-		URCProjectWeaponComponent* WeaponComponent;
-
-
-
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
@@ -50,6 +42,4 @@ private:
 
 	void LookUp(float Amount);
 	void TurnAround(float Amount);
-
-
 };
