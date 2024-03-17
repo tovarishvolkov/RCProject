@@ -21,7 +21,7 @@ ARCProjectCharacter::ARCProjectCharacter()
 	CameraComponent = CreateDefaultSubobject<UCameraComponent>("CameraComponent");
 	CameraComponent->SetupAttachment(SpringArmComponent);
 
-	WeaponComponent = CreateAbstractDefaultSubobject<URCProjectWeaponComponent>("WeaponComponent");
+	WeaponComponent = CreateDefaultSubobject<URCProjectWeaponComponent>("WeaponComponent");
 	
 	
 }
